@@ -26,3 +26,28 @@ export interface SessionResult {
   wordId: string;
   status: ProgressStatus;
 }
+
+export interface PlacementQuestion {
+  word: VocabWord;
+  choices: VocabWord[];
+}
+
+export interface PlacementAnswer {
+  wordId: string;
+  topicId: string;
+  correct: boolean;
+}
+
+export interface TopicStat {
+  correct: number;
+  total: number;
+}
+
+export type TopicStats = Record<string, TopicStat>;
+
+export interface PlacementResult {
+  completedAt: number;
+  totalQuestions: number;
+  correctCount: number;
+  topicStats: TopicStats;
+}
