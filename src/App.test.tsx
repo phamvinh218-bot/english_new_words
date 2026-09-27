@@ -1,7 +1,11 @@
-import { expect, test } from "vitest";
+import { beforeEach, expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "./App";
+
+beforeEach(() => {
+  window.localStorage.clear();
+});
 
 test("renders the Home screen at the root route", () => {
   render(
@@ -21,4 +25,14 @@ test("renders the Topic screen at /topic/:topicId", () => {
   );
 
   expect(screen.getByText("Animals")).toBeInTheDocument();
+});
+
+test("renders the Placement Test intro at /placement-test", () => {
+  render(
+    <MemoryRouter initialEntries={["/placement-test"]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText("Placement Test 📝")).toBeInTheDocument();
 });
