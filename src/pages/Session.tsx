@@ -23,14 +23,15 @@ export default function Session() {
     return <Navigate to="/" replace />;
   }
 
+  const resolvedTopicId = topic.id;
   const state = location.state as SessionLocationState | null;
-  const wordIds = state?.wordIds ?? getWordsForTopic(topic.id).map((w) => w.id);
+  const wordIds = state?.wordIds ?? getWordsForTopic(resolvedTopicId).map((w) => w.id);
   const sessionWords: VocabWord[] = wordIds
     .map((id) => getWordById(id))
     .filter((w): w is VocabWord => w !== undefined);
 
   if (sessionWords.length === 0) {
-    return <Navigate to={`/topic/${topic.id}`} replace />;
+    return <Navigate to={`/topic/${resolvedTopicId}`} replace />;
   }
 
   const currentWord = sessionWords[currentIndex];
@@ -40,7 +41,7 @@ export default function Session() {
     const nextResults = [...results, { wordId: currentWord.id, status }];
 
     if (currentIndex === sessionWords.length - 1) {
-      navigate(`/topic/${topic.id}/summary`, { state: { results: nextResults } });
+      navigate(`/topic/${resolvedTopicId}/summary`, { state: { results: nextResults } });
       return;
     }
 
