@@ -60,3 +60,16 @@ test("shows a recommendation banner and Retake link when a result is stored", ()
     "/placement-test"
   );
 });
+
+test("always shows a Daily Check-up link", () => {
+  render(
+    <MemoryRouter>
+      <Home />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByRole("link", { name: /Daily Check-up/ })).toHaveAttribute(
+    "href",
+    "/daily-test"
+  );
+});

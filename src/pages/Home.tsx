@@ -18,7 +18,7 @@ export default function Home() {
       </h1>
 
       {placementResult && weakestTopic ? (
-        <div className="mb-6 flex flex-col items-center gap-2 rounded-3xl bg-amber-100 p-4 text-center sm:flex-row sm:justify-between">
+        <div className="mb-4 flex flex-col items-center gap-2 rounded-3xl bg-amber-100 p-4 text-center sm:flex-row sm:justify-between">
           <p className="text-lg font-bold text-amber-700">
             ⭐ Try this next:{" "}
             <Link
@@ -34,7 +34,7 @@ export default function Home() {
           </Link>
         </div>
       ) : (
-        <div className="mb-6 flex justify-center">
+        <div className="mb-4 flex justify-center">
           <Link
             to="/placement-test"
             className="rounded-full bg-purple-500 px-8 py-4 text-xl font-bold text-white shadow transition-transform active:scale-95"
@@ -43,6 +43,15 @@ export default function Home() {
           </Link>
         </div>
       )}
+
+      <div className="mb-6 flex justify-center">
+        <Link
+          to="/daily-test"
+          className="rounded-full bg-teal-500 px-8 py-4 text-xl font-bold text-white shadow transition-transform active:scale-95"
+        >
+          Daily Check-up 🎯
+        </Link>
+      </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
         {topics.map((topic) => (
