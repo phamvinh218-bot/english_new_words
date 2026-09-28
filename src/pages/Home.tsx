@@ -44,12 +44,21 @@ export default function Home() {
         </div>
       )}
 
-      <div className="mb-6 flex justify-center">
+      <div className="mb-4 flex justify-center">
         <Link
           to="/daily-test"
           className="rounded-full bg-teal-500 px-8 py-4 text-xl font-bold text-white shadow transition-transform active:scale-95"
         >
           Daily Check-up 🎯
+        </Link>
+      </div>
+
+      <div className="mb-6 flex justify-center">
+        <Link
+          to="/dashboard"
+          className="rounded-full bg-indigo-500 px-8 py-4 text-xl font-bold text-white shadow transition-transform active:scale-95"
+        >
+          Progress Report 📊
         </Link>
       </div>
 

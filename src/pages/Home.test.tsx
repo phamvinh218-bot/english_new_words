@@ -73,3 +73,16 @@ test("always shows a Daily Check-up link", () => {
     "/daily-test"
   );
 });
+
+test("always shows a Progress Report link", () => {
+  render(
+    <MemoryRouter>
+      <Home />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByRole("link", { name: /Progress Report/ })).toHaveAttribute(
+    "href",
+    "/dashboard"
+  );
+});
