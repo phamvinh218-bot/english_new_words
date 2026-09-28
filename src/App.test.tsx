@@ -46,3 +46,13 @@ test("renders the Daily Test intro at /daily-test", () => {
 
   expect(screen.getByText("Daily Check-up 🎯")).toBeInTheDocument();
 });
+
+test("renders the Dashboard at /dashboard", () => {
+  render(
+    <MemoryRouter initialEntries={["/dashboard"]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText("Progress Report 📊")).toBeInTheDocument();
+});
